@@ -21,7 +21,8 @@ public class UserHandler {
 	@RequestMapping(value = "put", method = RequestMethod.POST)
 	public String addpower(Users user) {
 		LogManager.getLogger().debug("我进来了.... user:" + user);
-		return "/page/success.jsp";// redirct:/
+		//return "/page/success.jsp";// redirct:/
+		return "/page/success";// redirct:/
 	}
 
 }

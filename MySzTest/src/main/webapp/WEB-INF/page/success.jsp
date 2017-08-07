@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h2>恭喜发财！！！！！</h2>
+	<jsp:include page="header.jsp"/>
 </body>
 </html>
