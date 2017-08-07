@@ -1,7 +1,10 @@
 package com.yc.ssm.entity;
 
-public class Partner {
+import java.io.Serializable;
 
+public class Partner implements Serializable {
+
+	private static final long serialVersionUID = 2751112049627303928L;
 	private int pid;
 	private String pname;
 

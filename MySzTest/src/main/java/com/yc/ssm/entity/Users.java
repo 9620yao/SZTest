@@ -1,7 +1,10 @@
 package com.yc.ssm.entity;
 
-public class Users {
+import java.io.Serializable;
 
+public class Users implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private int aid;
 	private String name;
 	private Partner partner;
