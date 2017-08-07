@@ -3,6 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 映射文件的命名空间 namespace的值是 与这对应的映射接口的全类名 -->
-<mapper namespace="com.yc">
+<mapper namespace="com.yc.ssm.mapper.UserMapper">
 
 </mapper>
