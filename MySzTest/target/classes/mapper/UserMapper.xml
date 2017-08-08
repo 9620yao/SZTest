@@ -5,4 +5,30 @@
 <!-- 映射文件的命名空间 namespace的值是 与这对应的映射接口的全类名 -->
 <mapper namespace="com.yc.ssm.mapper.UserMapper">
 
+	<!-- <insert id="insertUser" parameterType="java.util.Map">
+		insert into user
+		values(#{user.aid},#{user.name},#{partner.pid})
+	</insert> -->
+	
+	<insert id="insertUser" parameterType="com.yc.ssm.entity.Users">
+		insert into user
+		values(#{aid},#{name},#{partner.pid})
+	</insert>
+
+	<select id="ListUser" resultMap="getUser">
+		select *,pid from user
+	</select>
+
+	<select id="partner" parameterType="int" resultType="com.yc.ssm.entity.Partner">
+		select *
+		from partner where
+		pid =#{_parameter}
+	</select>
+
+	<resultMap type="com.yc.ssm.entity.Users" id="getUser">
+		<id property="aid" column="aid" />
+		<result property="name" column="name" />
+		<collection property="partner" column="pid" select="partner" />
+	</resultMap>
+
 </mapper>

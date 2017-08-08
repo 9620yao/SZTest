@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射文件的命名空间 namespace的值是 与这对应的映射接口的全类名 -->
+<mapper namespace="com.yc.ssm.mapper.PartnerMapper">
+
+	<insert id="insertPartner" parameterType="com.yc.ssm.mapper.PartnerMapper">
+		insert into partner
+		values(#{pid},#{pname})
+	</insert>
+
+</mapper>

@@ -10,11 +10,21 @@
 <body>
 	<form id="myform" action="user/put" method="post">
 		<!-- action="user/put" method="post" -->
-		<input class="aid" name="aid" value="1000" /> <input class="name"
-			name="name" value="zhangsan" /> <input class="pid"
-			name="partner.pid" value="1001" /> <input class="pname"
-			name="partner.pname" value="lisi" /> <a onclick="Put()"
-			href="javascript:void(0)">提交</a>
+		<p>
+			<input class="aid" name="aid" value="1000" />
+		</p>
+		<p>
+			<input class="name" name="name" value="zhangsan" />
+		</p>
+		<p>
+			<input class="pid" name="partner.pid" value="1001" />
+		</p>
+		<p>
+			<input class="pname" name="partner.pname" value="lisi" />
+		</p>
+		<p>
+			<a onclick="Put()" href="javascript:void(0)">提交</a>
+		</p>
 		<!-- <input type="submit" value="提 交"> -->
 	</form>
 	<jsp:include page="header.jsp" />

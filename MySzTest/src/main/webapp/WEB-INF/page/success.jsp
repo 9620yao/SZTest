@@ -7,7 +7,7 @@
 <title>成功页面</title>
 </head>
 <body>
-	<h2>恭喜发财！！！！！</h2>
+	<h2>提交成功！！！！！</h2>
 	<jsp:include page="header.jsp"/>
 </body>
 </html>
