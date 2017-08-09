@@ -23,6 +23,11 @@ public class UserHandler {
 	@Autowired
 	private PartnerService partnerService;
 
+	/**
+	 * 页面获取数据，目前没有分页
+	 * 
+	 * @return user对象，包含partner对象
+	 */
 	@RequestMapping(value = "get", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Users> Get() {
@@ -30,6 +35,12 @@ public class UserHandler {
 		return UsersService.listUser();// 返回页面数据
 	}
 
+	/**
+	 * 添加数据（user和partner同步添加）
+	 * 
+	 * @param user：前台传过来的user对象，包含partner对象
+	 * @return
+	 */
 	@RequestMapping(value = "put", method = RequestMethod.POST)
 	public String addpower(Users user) {
 		LogManager.getLogger().debug("我进来了.... user:" + user);

@@ -7,7 +7,7 @@ function getUser() {
 		alert(JSON.stringify(data));// json对象转为字符串 JSON.stringify(data);
 	}, "json");
 }
-getUser();
+//getUser();
 function Put() {
 	// var aid = $(".aid").val();
 	// var name = $(".name").val();
