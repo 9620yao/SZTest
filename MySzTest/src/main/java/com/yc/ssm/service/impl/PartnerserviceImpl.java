@@ -18,4 +18,14 @@ public class PartnerserviceImpl implements PartnerService {
 		return partnerMapper.insertPartner(Partner) > 0;
 	}
 
+	@Override
+	public int getid() {
+		return partnerMapper.getPid();
+	}
+
+	@Override
+	public int insertP(Partner partner) {
+		return partnerMapper.insertP(partner);
+	}
+
 }

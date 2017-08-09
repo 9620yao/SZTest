@@ -34,13 +34,32 @@ public class UsersServiceImplTest {
 
 	@Test
 	public void InsertUser() {
-		Partner p = new Partner(1002, "王二");
+		Partner p = new Partner();
+		p.setPname("xiaoyao");
 		boolean r1 = partnerService.insertPartner(p);
-		Users user = new Users(1004, "王6", p);
+		//partnerService.getid();
+		//int pid = p.getPid();
+		Users user = new Users();
+		user.setName("xiaoyao");
+		user.setPartner(p);
 		boolean result = usersService.insertUser(user);
 		System.out.println(result);
-		assertNotEquals(r1, false);
 		assertNotEquals(result, false);
+		assertNotEquals(r1, false);
+	}
+
+	@Test
+	public void Getpid() {
+		System.out.println(partnerService.getid());
+	}
+
+	@Test
+	public void insertp() {
+		Partner Partner = new Partner();
+		Partner.setPname("11");
+		partnerService.insertPartner(Partner);
+		int pid = Partner.getPid();
+		System.out.println(pid);
 	}
 
 }

@@ -5,14 +5,12 @@
 <!-- 映射文件的命名空间 namespace的值是 与这对应的映射接口的全类名 -->
 <mapper namespace="com.yc.ssm.mapper.UserMapper">
 
-	<!-- <insert id="insertUser" parameterType="java.util.Map">
-		insert into user
-		values(#{user.aid},#{user.name},#{partner.pid})
-	</insert> -->
-	
+	<!-- <insert id="insertUser" parameterType="java.util.Map"> insert into 
+		user values(#{user.aid},#{user.name},#{partner.pid}) </insert> -->
+
 	<insert id="insertUser" parameterType="com.yc.ssm.entity.Users">
-		insert into user
-		values(#{aid},#{name},#{partner.pid})
+		insert into user(name,pid)
+		values(#{name},#{partner.pid})
 	</insert>
 
 	<select id="ListUser" resultMap="getUser">

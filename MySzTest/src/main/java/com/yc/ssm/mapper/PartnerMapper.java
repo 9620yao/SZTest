@@ -6,4 +6,8 @@ public interface PartnerMapper {
 
 	int insertPartner(Partner partner);
 
+	int getPid();
+
+	int insertP(Partner partner);
+
 }
