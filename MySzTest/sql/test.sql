@@ -7,7 +7,7 @@ alter table user modify aid int auto_increment ;
 alter table user modify aid int default '1';
 --
 alter table partner modify pid int auto_increment ; 
-insert into partner(pname) values('xiaob') ;
+insert into partner values(last_insert_id(),'xiaoyyy') ;
 drop table partner;
 drop table user;
 truncate table partner
