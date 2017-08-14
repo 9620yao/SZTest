@@ -6,7 +6,9 @@
 <!-- <base href="/MySzTest/"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>测试</title>
-<link href="">
+<link rel="stylesheet" type="text/css" href="uploader/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="all"
+	href="uploader/css/fileinput.css">
 </head>
 <body>
 	<!-- 添加数据部分 start -->
@@ -31,12 +33,54 @@
 		</form>
 	</div>
 	<!-- 添加数据部分 end -->
+
+	<!-- 文件上传 start-->
+	<button type="button" class="btn btn-primary btn-lg"
+		data-toggle="modal" data-target="#myModal">点击进行文件上传</button>
+	<!-- 文件上传 end-->
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		data-backdrop="static">
+		<div class="modal-dialog" style="width: 85%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">文件上传</h4>
+				</div>
+				<!-- 文件上传 start -->
+				<div class="modal-body">
+					<div class="alert">
+						<form action="img/add" enctype="multipart/form-data" method="post">
+							<input id="picData" name="picData" type="file" multiple>
+							<input id="uid" name="uid" type="hidden" value="1">
+						</form>
+					</div>
+				</div>
+				<!-- 文件上传 end -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!--公共尾部 start -->
 	<div class="divfoot">
 		<jsp:include page="header.jsp" />
 	</div>
 	<!--公共尾部 end -->
 	<script type="text/javascript" src="easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="uploader/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="uploader/js/fileinput.js"></script>
+	<script type="text/javascript" src="uploader/js/locales/zh.js"></script>
+
+	<script type="text/javascript" src="uploader/upload.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

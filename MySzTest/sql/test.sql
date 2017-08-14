@@ -13,5 +13,11 @@ drop table user;
 truncate table partner
 select last_insert_id(); 
 select @@IDENTITY;--获取当前增长的id值
-
-
+create table img(
+	id int primary key auto_increment,
+	uid int,
+	time varchar(40),
+	content varchar(200)
+);
+alter table img AUTO_INCREMENT=1000;-- 必须大小
+select * from img;
