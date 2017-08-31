@@ -1,11 +1,12 @@
 $('#picData').fileinput({
 	language : 'zh',
+	uploadUrl : "img/add",
+	uploadExtraData : {"uid" : 1},
 	allowedFileExtensions : [ 'jpg', 'png', 'gif' ],
 	textEncoding : 'UTF-8',
-	dropZoneEnabled : true// 是否显示拖拽区域
 });
 $("#picData").on("fileuploaded", function(event, data, previewId, index) {
-	// alert(data);
+	alert(data);
 	$('#myModal').modal('hide');
 });
 $('#picData').on('fileerror', function(event, data, msg) {

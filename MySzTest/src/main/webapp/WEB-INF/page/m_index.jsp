@@ -55,7 +55,7 @@
 				<!-- 文件上传 start -->
 				<div class="modal-body">
 					<div class="alert">
-						<form action="img/add" enctype="multipart/form-data" method="post">
+						<form enctype="multipart/form-data" method="post">
 							<input id="picData" name="picData" type="file" multiple>
 							<input id="uid" name="uid" type="hidden" value="1">
 						</form>

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop
@@ -14,44 +12,56 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!-- 引入外部的属性文件 -->
-	<context:property-placeholder location="classpath:db.properties"/>
-	
+	<context:property-placeholder location="classpath:db.properties" />
+
 	<!-- 为了防止重复创建bean -->
 	<context:component-scan base-package="com.yc.ssm"><!-- 扫描bean的包 -->
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-	
+
 	<!-- 数据源交给spring容器管理 -->
 	<bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.usernames}" />
 		<property name="password" value="${jdbc.passwords}" />
-		<property name="initialSize" value="${jdbc.initialSize}"/>
-		<property name="maxActive" value="${jdbc.maxActive}"/>
-		<property name="minIdle" value="${jdbc.minIdle}"/>
-		<property name="validationQuery" value="${jdbc.validationQuery}"/>
+		<property name="initialSize" value="${jdbc.initialSize}" />
+		<property name="maxActive" value="${jdbc.maxActive}" />
+		<property name="minIdle" value="${jdbc.minIdle}" />
+		<property name="validationQuery" value="${jdbc.validationQuery}" />
 	</bean>
-	
+
 	<!-- mybatis的sqlSessionFactory交给spring容器管理 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"/>
-		<property name="typeAliasesPackage" value="com.yc.ssm.entity"/><!-- 实体类的包名  -->
-		<property name="mapperLocations" value="classpath:mapper/*Mapper.xml"/>
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="com.yc.ssm.entity" /><!-- 
+			实体类的包名 -->
+		<property name="mapperLocations" value="classpath:mapper/*Mapper.xml" />
 	</bean>
-	
-	<!-- 配置映射接口对应的根据映射文件生成的代理实现类bean,默认代理实现类bean的id为映射借口名（首字母小写）  -->
+
+	<!-- 配置映射接口对应的根据映射文件生成的代理实现类bean,默认代理实现类bean的id为映射借口名（首字母小写） -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.yc.ssm.mapper"/><!-- 映射接口所在的包   -->
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-	</bean> 
-	
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource"/>
+		<property name="basePackage" value="com.yc.ssm.mapper" /><!-- 
+			映射接口所在的包 -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
-	
-	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
 	<!-- aop注解切面 -->
-	<aop:aspectj-autoproxy/>
+	<aop:aspectj-autoproxy />
+
+	<!-- 视图解析器返回数据的时候，加上前缀和后缀 -->
+	<bean id="internalResourceViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/page/" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="10" /><!-- 设定优先级 -->
+	</bean>
 </beans>
