@@ -69,6 +69,9 @@
 		</div>
 	</div>
 
+	<div>
+		<jsp:forward page="/WEB-INF/page/info.jsp"/>
+	</div>
 	<!--公共尾部 start -->
 	<div class="divfoot">
 		<jsp:include page="header.jsp" />

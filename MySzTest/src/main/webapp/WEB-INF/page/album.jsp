@@ -20,10 +20,6 @@
 		</ul>
 	</div>
 
-	<!-- <div id="lightgallery">
-		<a href="img/1.jpg"> <img src="img/thumb-1.jpg" />
-		</a> <a href="img/2.jpg"> <img src="img/thumb-2.jpg" /></a>
-	</div> -->
 
 	<script type="text/javascript" src="easyui/jquery.min.js"></script>
 	<script type="text/javascript" src="album/js/lightgallery.min.js"></script>
